@@ -1,3 +1,4 @@
+import 'package:date_picker/range_picker.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(const MyApp());
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       restorationScopeId: 'app',
       title: _title,
-      home: MyStatefulWidget(restorationId: 'main'),
+      home: RangePicker(),
     );
   }
 }
