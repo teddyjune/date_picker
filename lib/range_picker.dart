@@ -32,9 +32,9 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget>
   @override
   String? get restorationId => widget.restorationId;
 
-  final RestorableDateTimeN _startDate = RestorableDateTimeN(DateTime(2021));
+  final RestorableDateTimeN _startDate = RestorableDateTimeN(DateTime(2022));
   final RestorableDateTimeN _endDate =
-      RestorableDateTimeN(DateTime(2021, 1, 5));
+      RestorableDateTimeN(DateTime(2023, 12, 05));
   late final RestorableRouteFuture<DateTimeRange?>
       _restorableDateRangePickerRouteFuture =
       RestorableRouteFuture<DateTimeRange?>(
@@ -76,9 +76,9 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget>
           restorationId: 'date_picker_dialog',
           initialDateRange:
               _initialDateTimeRange(arguments! as Map<dynamic, dynamic>),
-          firstDate: DateTime(2021),
-          currentDate: DateTime(2021, 1, 25),
-          lastDate: DateTime(2022),
+          firstDate: DateTime(2022),
+          currentDate: DateTime.now(),
+          lastDate: DateTime(2023),
         );
       },
     );
@@ -104,7 +104,10 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget>
       body: Center(
         child: OutlinedButton(
           onPressed: () {
-            _restorableDateRangePickerRouteFuture.present();
+            showDateRangePicker(
+                context: context,
+                firstDate: DateTime(2022),
+                lastDate: DateTime(2023));
           },
           child: const Text('Open Date Range Picker'),
         ),
